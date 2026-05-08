@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Site do Gabriel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class = "cabecalho">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="titulo-login">Login</h1>
+        
+        <img class="img-login" src="img/login.jpg" alt="Logo do site" width="50">
+        
+
+
+        <!-- Formulário -->
+        <form action="/enviar-dados" method="GET">
+
+            <label class="email" for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            <br><br>
+
+            <label class="password" for="password">Senha:</label><br>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            <br><br>
+
+            <button class="enviar" ="submit">Entrar</button>
+
+        </form>
+    </div>
+    <hr>
+
+    <h2>Links úteis</h2>
+
+    <!-- Links -->
+    <a href="https://chatgpt.com/" target="_blank">Ajuda</a><br>
+
+
+    <hr>
+
+    <h2>Usuários cadastrados (exemplo)</h2>
+
+    <!-- Tabela -->
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td>Gabriel</td>
+            <td>gabriel@email.com</td>
+        </tr>
+        <tr>
+            <td>João</td>
+            <td>joao@email.com</td>
+        </tr>
+    </table>
+
+</body>
+</html>
