@@ -3,35 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Site do Gabriel</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Site do Gabriel</h1>
+    <header>
+        <div class = "cabecalho">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="titulo-login">Login</h1>
+        
+        <img class="img-login" src="img/login.jpg" alt="Logo do site" width="50">
+        
 
-    <!-- Imagem -->
-    
-    <img src="img/login.jpg" alt="Logo do site" width="50">
 
-    <hr>
+        <!-- Formulário -->
+        <form action="/enviar-dados" method="GET">
 
-    <h2>Login</h2>
+            <label class="email" for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+            <br><br>
 
-    <!-- Formulário -->
-    <form action="/enviar-dados" method="GET">
+            <label class="password" for="password">Senha:</label><br>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+            <br><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-        <br><br>
+            <button class="enviar" ="submit">Entrar</button>
 
-        <label for="password">Senha:</label><br>
-        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-        <br><br>
-
-        <button type="submit">Entrar</button>
-
-    </form>
-
+        </form>
+    </div>
     <hr>
 
     <h2>Links úteis</h2>
@@ -45,7 +52,7 @@
     <h2>Usuários cadastrados (exemplo)</h2>
 
     <!-- Tabela -->
-    <table border="1">
+    <table>
         <tr>
             <th>Nome</th>
             <th>Email</th>
