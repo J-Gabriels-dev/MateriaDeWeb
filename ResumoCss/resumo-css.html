@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resumo CSS — Capítulo 3</title>
+  <link rel ="stylesheet" href = "style.css">
+  
+</head>
+<body>
+
+<h1>Resumo CSS — Capítulo 3</h1>
+<p>Designing Web Pages with CSS · Rheinwerk Publishing</p>
+
+<h2>1. O que é CSS</h2>
+<p>CSS (Cascading Style Sheets) controla a aparência 
+  visual dos elementos HTML. Uma <strong>regra CSS</strong> 
+  tem duas partes: o <strong>seletor</strong> (qual elemento) e a 
+  <strong>declaração</strong> (propriedade + valor).</p>
+
+<h2>2. Como incluir CSS no HTML</h2>
+<table>
+  <tr><th>Forma</th><th>Como</th><th>Quando usar</th></tr>
+  <tr><td>External</td><td>link href="styles.css" rel="stylesheet" ;</td><td>Melhor prática — reutilizável</td></tr>
+  <tr><td>Internal</td><td>  no &lt;head&gt;</td><td>Página única</td></tr>
+  <tr><td>Inline</td><td>&lt;p style="color:red"&gt;</td><td>Casos excepcionais</td></tr>
+  <tr><td>@import</td><td><code>@import url(outro.css); dentro do CSS</td><td>Modularizar arquivos CSS</td></tr>
+</table>
+
+<h2>3. Seletores</h2>
+<table>
+  <tr><th>Seletor</th><th>Seleciona</th></tr>
+  <tr><td>h1</td><td>Todos os elementos  (type selector)</td></tr>
+  <tr><td>.nome</td><td>Elementos com class="nome" </td></tr>
+  <tr><td>#id</td><td>Elemento com  (único na página)</td></tr>
+  <tr><td>*</td><td>Todos os elementos (universal)</td></tr>
+  <tr><td>[type="text"]</td><td>Elementos pelo valor de atributo</td></tr>
+  <tr><td>h1 + p</td><td>Irmão adjacente (imediatamente após)</td></tr>
+  <tr><td>h1 ~ p</td><td>Irmão geral (após, qualquer posição)</td></tr>
+  <tr><td>body ul</td><td>Filho direto</td></tr>
+  <tr><td>body ul</td><td>Descendente (qualquer nível)</td></tr>
+</table>
+
+<h2>4. Cascata e Especificidade</h2>
+<p>Quando várias regras atingem o mesmo elemento, vence a 
+  de <strong>maior especificidade</strong>. Com especificidade 
+    igual, vence a declarada <strong>por último</strong>.</p>
+<h3>Cálculo A · B · C</h3>
+<ul>
+  <li><strong>A</strong> — ID selectors (<code>#id</code>)</li>
+  <li><strong>B</strong> — Class, atributo, pseudo-class (<code>.classe</code>, <code>:hover</code>)</li>
+  <li><strong>C</strong> — Type, pseudo-element (<code>h1</code>, <code>::before</code>)</li>
+</ul>
+          → 0 0 0   (menor)
+h1         → 0 0 1
+.classe    → 0 1 0
+#id        → 1 0 0   (maior)
+
+<h3>Pseudo-classes comuns</h3>
+<p><code>:link</code> · <code>:visited</code> · <code>:hover</code> · <code>:active</code> · <code>:focus</code> · <code>:first-child</code> · <code>:nth-child(n)</code></p>
+
+<h3>Pseudo-elementos comuns</h3>
+<p><code>::before</code> · <code>::after</code> · <code>::first-letter</code> · <code>::first-line</code> · <code>::selection</code></p>
+
+<h2>5. Herança</h2>
+<p>Filhos herdam certas propriedades do pai. <code>color</code> e <code>font-family</code> <strong>são herdados</strong>. <code>border</code> e <code>padding</code> <strong>não são</strong>.</p>
+
+<h2>6. Cores</h2>
+<table>
+  <tr><th>Formato</th><th>Exemplo</th></tr>
+  <tr><td>Nome</td><td><code>color: darkblue</code></td></tr>
+  <tr><td>Hexadecimal</td><td><code>color: #FFFF00</code> ou curto <code>#FF0</code></td></tr>
+  <tr><td>RGB</td><td><code>rgb(255, 255, 0)</code></td></tr>
+  <tr><td>RGBA</td><td><code>rgba(255, 255, 0, 0.5)</code> — alpha 0.0–1.0</td></tr>
+  <tr><td>HSL</td><td><code>hsl(60, 100%, 50%)</code></td></tr>
+  <tr><td>HSLA</td><td><code>hsla(60, 100%, 50%, 0.5)</code></td></tr>
+</table>
+<p>Cor do texto: <code>color</code>. Cor de fundo: <code>background-color</code>.</p>
+
+<h2>7. Formatação de Texto</h2>
+<table>
+  <tr><th>Propriedade</th><th>O que faz</th></tr>
+  <tr><td>font-family</td><td>Fonte. Ex.: <code>'Arial', sans-serif</code> (fallbacks por vírgula)</td></tr>
+  <tr><td>font-size</td><td>Tamanho: <code>14px</code>, <code>150%</code>, <code>1.5em</code></td></tr>
+  <tr><td>font-style</td><td><code>italic</code> | <code>oblique</code> | <code>normal</code></td></tr>
+  <tr><td>font-weight</td><td><code>bold</code> | <code>normal</code> | 100–900</td></tr>
+  <tr><td>text-transform</td><td><code>uppercase</code> | <code>lowercase</code> | <code>capitalize</code></td></tr>
+  <tr><td>text-decoration</td><td><code>underline</code> | <code>line-through</code> | <code>overline</code></td></tr>
+  <tr><td>text-align</td><td><code>left</code> | <code>right</code> | <code>center</code> | <code>justify</code></td></tr>
+  <tr><td>line-height</td><td>Espaço entre linhas. Ex.: <code>1.5em</code></td></tr>
+  <tr><td>letter-spacing</td><td>Espaço entre letras</td></tr>
+  <tr><td>word-spacing</td><td>Espaço entre palavras</td></tr>
+  <tr><td>text-shadow</td><td>Sombra no texto</td></tr>
+  <tr><td>text-indent</td><td>Recuo da primeira linha</td></tr>
+</table>
+
+<h3>Formatando links</h3>
+
+<h2>8. Listas</h2>
+<table>
+  <tr><th>Propriedade</th><th>Valores principais</th></tr>
+  <tr><td>list-style-type</td><td>Não ordenada: <code>disc</code> · <code>circle</code> · <code>square</code> · <code>none</code><br>Ordenada: <code>decimal</code> · <code>lower-alpha</code> · <code>upper-alpha</code> · <code>lower-roman</code> · <code>upper-roman</code></td></tr>
+  <tr><td>list-style-image</td><td><code>url("star.png")</code> — imagem como marcador</td></tr>
+  <tr><td>list-style-position</td><td><code>outside</code> (padrão) | <code>inside</code> (indentado)</td></tr>
+</table>
+
+<h2>9. Tabelas</h2>
+<table>
+  <tr><th>Propriedade</th><th>O que faz</th></tr>
+  <tr><td>border</td><td>Borda. Ex.: <code>thin solid #000</code></td></tr>
+  <tr><td>border-collapse</td><td><code>collapse</code> — une bordas adjacentes das células</td></tr>
+  <tr><td>padding</td><td>Espaço entre conteúdo e borda da célula</td></tr>
+  <tr><td>tr:nth-child(odd/even)</td><td>Estiliza linhas alternadas (efeito zebra)</td></tr>
+  <tr><td>td:first-child</td><td>Primeira coluna</td></tr>
+  <tr><td>td:nth-child(n)</td><td>N-ésima coluna</td></tr>
+</table>
+
+<h2>10. Sistemas de Layout</h2>
+
+<h3>Block vs Inline</h3>
+<p><strong>Block</strong>: ocupa a linha inteira, empilhados verticalmente (<code>div</code>, <code>p</code>, <code>h1</code>).<br>
+<strong>Inline</strong>: ocupa só o espaço necessário, fluem horizontalmente (<code>span</code>, <code>a</code>).<br>
+A propriedade <code>display</code> muda o comportamento: <code>block</code> | <code>inline</code> | <code>flex</code> | <code>grid</code>.</p>
+
+<h3>Posicionamento (position)</h3>
+<table>
+  <tr><th>Valor</th><th>Comportamento</th></tr>
+  <tr><td>static</td><td>Fluxo normal (padrão)</td></tr>
+  <tr><td>relative</td><td>Relativo à sua posição normal</td></tr>
+  <tr><td>absolute</td><td>Fora do fluxo; posicionado em relação ao pai</td></tr>
+  <tr><td>fixed</td><td>Fixo na janela do browser</td></tr>
+  <tr><td>sticky</td><td>Normal até certo ponto de scroll, depois fixo</td></tr>
+</table>
+
+<h3>Float Layout</h3>
+<p><code>float: left</code> ou <code>float: right</code> move o elemento para a borda do bloco. O pai precisa de <code>overflow: hidden</code> para conter os filhos flutuantes. Considerado legado — prefira Flexbox ou Grid.</p>
+
+<h3>Flexbox (display: flex) — 1 dimensão</h3>
+<p>Organiza itens em linha ou coluna. O container ajusta o tamanho dos itens para preencher o espaço.</p>
+<table>
+  <tr><th>Propriedade</th><th>Onde</th><th>O que faz</th></tr>
+  <tr><td>flex-direction</td><td>container</td><td><code>row</code> | <code>column</code></td></tr>
+  <tr><td>justify-content</td><td>container</td><td>Alinhamento no eixo principal</td></tr>
+  <tr><td>align-items</td><td>container</td><td>Alinhamento no eixo cruzado</td></tr>
+  <tr><td>flex-wrap</td><td>container</td><td>Quebra de linha</td></tr>
+  <tr><td>flex</td><td>item</td><td>Shorthand: grow + shrink + basis</td></tr>
+  <tr><td>order</td><td>item</td><td>Ordem de exibição</td></tr>
+</table>
+
+<h3>Grid Layout (display: grid) — 2 dimensões</h3>
+<p>Organiza itens em linhas E colunas. Ideal para layouts de página inteira.</p>
+<table>
+  <tr><th>Propriedade</th><th>Onde</th><th>O que faz</th></tr>
+  <tr><td>grid-template-columns</td><td>container</td><td>Define colunas. Ex.: <code>1fr 2fr</code></td></tr>
+  <tr><td>grid-template-rows</td><td>container</td><td>Define linhas</td></tr>
+  <tr><td>gap</td><td>container</td><td>Espaço entre células</td></tr>
+  <tr><td>grid-column</td><td>item</td><td>Ex.: <code>1 / 3</code> — da coluna 1 até 3</td></tr>
+  <tr><td>grid-row</td><td>item</td><td>Ex.: <code>1 / 2</code> — da linha 1 até 2</td></tr>
+</table>
+
+</body>
+</html>
